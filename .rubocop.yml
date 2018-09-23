@@ -1,5 +1,7 @@
 # Relaxed.Ruby.Style
 ## Version 2.2
+Naming/FileName:
+  Enabled: false
 
 Style/Alias:
   Enabled: false
