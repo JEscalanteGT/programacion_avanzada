@@ -144,6 +144,22 @@ def mostrar(lista)
   end
 end
 
+def eliminar_antes(lista, carnet)
+  posicion = obtener_posicion(lista, carnet)
+  aux = obtener_nodo(lista, posicion)
+
+  nodo_anterior = obtener_nodo(lista, posicion - 1)
+  if nodo_anterior[:valor][:carnet] == lista[:tope][:valor][:carnet]
+    lista[:tope] = aux
+  else
+    nodo_anterior_2 = obtener_nodo(lista, posicion - 2)
+    nodo_anterior_2[:siguiente] = aux
+    nodo_anterior[:siguiente] = nil
+    puts nodo_anterior_2
+  end
+  lista[:size] -= 1
+end
+
 estudiantes = [
   { nombre: 'Donald', carnet: '1538017' },
   { nombre: 'Leysi', carnet: '1542218' },
@@ -178,5 +194,9 @@ nuevo_estudiante = {
 }
 
 insertar_despues(lista, '1662318', nuevo_estudiante)
+
+mostrar(lista)
+
+eliminar_antes(lista, '1662318')
 
 mostrar(lista)
